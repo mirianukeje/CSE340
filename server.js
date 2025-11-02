@@ -43,10 +43,3 @@ app.listen(port, () => {
   console.log(`app listening on ${host}:${port}`)
 })
 
-<<<<<<< HEAD
-=======
-//Index route
-app.get("/", function (req, res){
-  res.render("index", { title: "Home" })
-})
->>>>>>> 803bd4852cd8f1503c62b4bbdf902d94010a15f9
