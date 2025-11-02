@@ -1,12 +1,3 @@
-/* ******************************************
- * This server.js file is the primary file of the 
- * application. It is used to control the project.
- *******************************************/
-/* ***********************
- * Require Statements
- *************************/
-const express = require("express")
-const env = require("dotenv").config()
 const app = express()
 const static = require("./routes/static")
 
@@ -29,7 +20,7 @@ app.listen(port, () => {
   console.log(`app listening on ${host}:${port}`)
 })
 
-// Index route
-app.get("/", function (_req, res){
+//Index route
+app.get("/", function (req, res){
   res.render("index", { title: "Home" })
 })
