@@ -14,8 +14,8 @@
   --highlight-color: #006400;
   --dark-color: #000000;
   --border-color: #dddddd;
-  --heading-font: "PT Serif", Georgia, serif;
-  --body-font: "Lato", Arial, sans-serif;
+  --heading-font: "Roboto Slab", Georgia, serif;
+  --body-font: "Montserrat", Arial, sans-serif;
   --max-width: 960px;
 }
 
@@ -102,26 +102,26 @@ nav li:hover {
    Hero Section
 ====================================================== */
 
-.hero {
+.vehicle-hero {
   position: relative;
   overflow: hidden;
   max-width: 1200px;
   margin: 0 auto;
 }
 
-.hero-image {
+.vehicle-hero-image {
   display: block;
   width: 100%;
   height: auto;
   object-fit: cover;
 }
 
-.hero-content h2 {
+.vehicle-hero-content h2 {
   text-align: left;
   margin: 0;
 }
 
-.hero-content {
+.vehicle-hero-content {
   position: absolute;
   top: 50%;
   left: 30%;
@@ -135,17 +135,17 @@ nav li:hover {
   border-radius: 6px;
 }
 
-.hero-features {
+.vehicle-feature-list {
   list-style: none;
   padding: 0;
   margin: 0 0 1rem 0;
 }
 
-.hero-features li {
+.vehicle-feature-list li {
   font-size: 1rem;
 }
 
-.hero-btn {
+.vehicle-cta-button {
   display: inline-block;
   background-color: var(--primary-color);
   color: white;
@@ -155,13 +155,13 @@ nav li:hover {
   transition: background-color 0.3s ease, transform 0.2s;
 }
 
-.hero-btn:hover {
+.vehicle-cta-button:hover {
   background-color: #006400;
   transform: translateY(-2px);
 }
 
-
- .reviews-upgrades {
+ 
+ .vehicle-reviews-and-upgrades {
     display: grid;
     grid-template-columns: 1fr;
     /* flex-direction: column; */
@@ -185,12 +185,12 @@ section#reviews-heading ul li {
 /* ======================================================
    Upgrades Section
 ====================================================== */
-.upgrades {
+.vehicle-upgrades-section {
   background-color: #fff;
 }
 
 
-.upgrades-grid {
+.upgrade-card-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   margin-top: 1rem;
@@ -247,24 +247,24 @@ footer {
       margin: 0 auto;
     }
 
-  .hero {
+  .vehicle-hero {
     flex-direction: row;
     justify-content: space-around;
     text-align: left;
   }
 
-  .hero-content {
+  .vehicle-hero-content {
     padding: 2rem;
     font-size: 1.5rem;
   }
 
-  .reviews-upgrades {
+  .vehicle-reviews-and-upgrades {
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
     align-items: flex-start;
   }
 
-  .reviews-upgrades .upgrades {
+  .vehicle-reviews-and-upgrades .vehicle-upgrades-section {
     order: -1;
   }
 
