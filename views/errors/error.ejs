@@ -1,0 +1,14 @@
+<% if (title) { %>
+<h1><%= title %></h1>
+<% } else { %>
+<h1>Server Error</h1>
+<% } %>
+
+<section class="error-message">
+  <p><%= message || "Something unexpected happened on our end. Please try again." %></p>
+  <p>If this keeps happening, let us know so we can fix it.</p>
+  <div class="error-actions">
+    <a href="/">Return to Home</a>
+    <a href="javascript:history.back()">Go Back</a>
+  </div>
+</section>

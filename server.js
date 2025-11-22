@@ -13,6 +13,7 @@ const utilities = require("./utilities")
 const app = express()
 const static = require("./routes/static")
 const inventoryRoute = require("./routes/inventoryRoute")
+const errorRoute = require("./routes/errorRoute")
 
 /* ***********************
  * View Engine and Templates
@@ -31,6 +32,8 @@ app.use(static)
 app.get("/", utilities.handleErrors(baseController.buildHome))
 // Inventory routes
 app.use("/inv", inventoryRoute)
+// Intentional error test route
+app.use("/error", errorRoute)
 // app.get("/", function (_req, res){
 //   res.render("index", { title: "Home" })
 // })
