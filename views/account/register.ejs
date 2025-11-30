@@ -1,0 +1,57 @@
+<h1><%= title %></h1>
+
+<%- messages() %>
+<% if (errors) { %>
+  <ul class="messages">
+    <% (errors.array ? errors.array() : errors).forEach(error => { %>
+      <li class="error"><%= error.msg %></li>
+    <% }) %>
+  </ul>
+<% } %>
+
+<section class="auth-container">
+  <div class="auth-card">
+    <p class="auth-intro">Create your account to start managing vehicles and reservations.</p>
+    <form class="auth-form" action="/account/register" method="post">
+      <label for="account_firstname">First name</label>
+      <input type="text" id="account_firstname" name="account_firstname" placeholder="First name" required value="<%= locals.account_firstname %>">
+
+      <label for="account_lastname">Last name</label>
+      <input type="text" id="account_lastname" name="account_lastname" placeholder="Last name" required value="<%= locals.account_lastname %>">
+
+      <label for="account_email">Email address</label>
+      <input type="email" id="account_email" name="account_email" placeholder="you@example.com" required value="<%= locals.account_email %>">
+
+      <label for="account_password">Password</label>
+      <div class="password-requirements" id="password-help">
+        Passwords must be at least 12 characters and include 1 uppercase letter, 1 number, and 1 special character.
+      </div>
+      <div class="password-field">
+        <input
+          type="password"
+          id="account_password"
+          name="account_password"
+          placeholder="Create a strong password"
+          required
+          aria-describedby="password-help"
+          pattern="^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\\s).{12,}$">
+        <button type="button" class="toggle-password" data-target="account_password">Show</button>
+      </div>
+
+      <button type="submit">Register</button>
+    </form>
+  </div>
+</section>
+
+<script>
+  document.querySelectorAll(".toggle-password").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const targetId = btn.getAttribute("data-target")
+      const input = document.getElementById(targetId)
+      if (!input) return
+      const isPassword = input.getAttribute("type") === "password"
+      input.setAttribute("type", isPassword ? "text" : "password")
+      btn.textContent = isPassword ? "Hide" : "Show"
+    })
+  })
+</script>

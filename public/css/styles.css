@@ -268,6 +268,245 @@ figure img {
 }
 
 /* ======================================================
+   Flash Messages
+====================================================== */
+.messages {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+}
+
+.messages li {
+  border: 1px solid var(--border-color);
+  border-left: 4px solid var(--primary-color);
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  background: #f8f7ff;
+  color: #1e1a3e;
+}
+
+.messages .notice {
+  border-left-color: var(--primary-color);
+}
+
+.messages .error {
+  border-left-color: #b91c1c;
+  background: #fff5f5;
+  color: #7f1d1d;
+}
+
+/* ======================================================
+   Auth Forms
+====================================================== */
+.auth-container {
+  display: flex;
+  justify-content: center;
+  padding: 2rem 1rem 3rem;
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 440px;
+  background: #fff;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  padding: 1.5rem;
+}
+
+.auth-intro {
+  margin: 0;
+  color: #444;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.auth-form label {
+  font-weight: 600;
+  color: #222;
+}
+
+.auth-form input {
+  padding: 0.65rem 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.auth-form input:focus {
+  border-color: var(--primary-color);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(75, 0, 130, 0.12);
+}
+
+.auth-form button {
+  margin-top: 0.5rem;
+  background: var(--primary-color);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.75rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.auth-form button:hover {
+  background: #372b7f;
+}
+
+.auth-form button:active {
+  transform: translateY(1px);
+}
+
+.auth-switch {
+  margin-top: 1rem;
+  color: #333;
+}
+
+.auth-switch a {
+  font-weight: 700;
+}
+
+.toggle-password {
+  background: #f3f1ff;
+  color: #241758;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  padding: 0.55rem 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.toggle-password:hover {
+  background: #e7e1ff;
+  border-color: #c7b7ff;
+}
+
+.password-field {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.password-field input {
+  flex: 1;
+}
+
+.toggle-password {
+  background: #f3f1ff;
+  color: #241758;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  padding: 0.55rem 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.toggle-password:hover {
+  background: #e7e1ff;
+  border-color: #c7b7ff;
+}
+
+.auth-form small {
+  color: #4a4a4a;
+  line-height: 1.4;
+}
+
+.auth-form textarea {
+  padding: 0.65rem 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.auth-form textarea:focus {
+  border-color: var(--primary-color);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(75, 0, 130, 0.12);
+}
+
+.password-requirements {
+  margin: 0.35rem 0 0.25rem;
+  padding: 0.5rem;
+  background: #f8f7ff;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  color: #2b2b2b;
+  font-size: 0.95rem;
+}
+
+/* ======================================================
+   Form Validation States
+====================================================== */
+input:required:invalid,
+input:focus:invalid {
+  border-color: #b91c1c;
+  box-shadow: 0 0 0 3px rgba(185, 28, 28, 0.15);
+  background-image: url(/images/invalid.png);
+  background-position: right top;
+  background-repeat: no-repeat;
+}
+
+input:required:valid {
+  border-color: #0f9d58;
+  box-shadow: 0 0 0 3px rgba(15, 157, 88, 0.12);
+  background-image: url(/images/valid.png);
+  background-position: right top;
+  background-repeat: no-repeat;
+}
+
+/* ======================================================
+   Management
+====================================================== */
+.management-actions {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+  padding: 1rem 0 2rem;
+}
+
+.action-card {
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  padding: 1rem;
+  background: #fff;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
+}
+
+.action-card h2 {
+  margin-top: 0;
+}
+
+.action-link {
+  display: inline-block;
+  margin-top: 0.5rem;
+  background: var(--primary-color);
+  color: #fff;
+  padding: 0.6rem 1rem;
+  border-radius: 6px;
+  font-weight: 700;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.action-link:hover {
+  background: #372b7f;
+}
+
+.action-link:active {
+  transform: translateY(1px);
+}
+
+/* ======================================================
    Footer
 ====================================================== */
 footer {

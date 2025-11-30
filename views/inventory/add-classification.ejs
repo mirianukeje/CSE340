@@ -1,0 +1,28 @@
+<h1>Add Classification</h1>
+
+<%- messages() %>
+<% if (errors) { %>
+  <ul class="messages">
+    <% (errors.array ? errors.array() : errors).forEach(error => { %>
+      <li class="error"><%= error.msg %></li>
+    <% }) %>
+  </ul>
+<% } %>
+
+<section class="auth-container">
+  <div class="auth-card">
+    <p class="auth-intro">Create a new classification (no spaces or special characters).</p>
+    <form class="auth-form" action="/inv/add-classification" method="post">
+      <label for="classification_name">Classification Name</label>
+      <input
+        type="text"
+        id="classification_name"
+        name="classification_name"
+        required
+        pattern="^[A-Za-z0-9]+$"
+        placeholder="e.g., SUVs"
+        value="<%= locals.classification_name || '' %>">
+      <button type="submit">Add Classification</button>
+    </form>
+  </div>
+</section>
