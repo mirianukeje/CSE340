@@ -91,6 +91,9 @@ async function buildManagement(req, res) {
   })
 }
 
+
+
+
 /* ****************************************
  *  Process login request
  * ************************************ */
@@ -132,5 +135,6 @@ async function accountLogin(req, res) {
     throw new Error('Access Forbidden')
   }
 }
+
 
 module.exports = { buildLogin, buildRegister, registerAccount, buildManagement, accountLogin }
