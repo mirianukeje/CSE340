@@ -84,9 +84,30 @@ async function registerAccount(req, res) {
 * *************************************** */
 async function buildManagement(req, res) {
   let nav = await utilities.getNav()
+  const accountData = res.locals.accountData
   res.render("account/accountManagement", {
     title: "Account Management",
     nav,
+    accountData,
+    errors: null,
+  })
+}
+
+/* ****************************************
+*  Deliver account update view
+* *************************************** */
+async function buildUpdateAccount(req, res) {
+  let nav = await utilities.getNav()
+  const accountData = res.locals.accountData
+  const requestedId = parseInt(req.params.accountId, 10)
+  if (accountData && requestedId !== accountData.account_id) {
+    req.flash("notice", "You can only update your own account.")
+    return res.redirect("/account/")
+  }
+  res.render("account/updateAccount", {
+    title: "Update Account",
+    nav,
+    accountData,
     errors: null,
   })
 }
@@ -137,4 +158,4 @@ async function accountLogin(req, res) {
 }
 
 
-module.exports = { buildLogin, buildRegister, registerAccount, buildManagement, accountLogin }
+module.exports = { buildLogin, buildRegister, registerAccount, buildManagement, buildUpdateAccount, accountLogin }

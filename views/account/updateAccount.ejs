@@ -1,0 +1,19 @@
+<h1><%= title %></h1>
+
+<%- messages() %>
+<% if (errors) { %>
+  <ul class="messages">
+    <% (errors.array ? errors.array() : errors).forEach(error => { %>
+      <li class="error"><%= error.msg %></li>
+    <% }) %>
+  </ul>
+<% } %>
+
+<section class="account-update">
+  <% if (accountData) { %>
+    <p>Update account information for <strong><%= accountData.account_firstname %> <%= accountData.account_lastname %></strong> (ID: <%= accountData.account_id %>).</p>
+    <!-- Placeholder for future update form -->
+  <% } else { %>
+    <p>Account information unavailable.</p>
+  <% } %>
+</section>
