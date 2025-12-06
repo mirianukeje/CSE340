@@ -26,10 +26,19 @@ router.post(
   utilities.handleErrors(invController.addInventory)
 )
 
+// Update inventory item
+router.post("/update", utilities.handleErrors(invController.updateInventory))
+
 // Route to build inventory by classification view
 router.get("/type/:classificationId", utilities.handleErrors(invController.buildByClassificationId));
 
 // Route to build inventory item detail view
 router.get("/detail/:invId", utilities.handleErrors(invController.buildByInventoryId));
+
+// Get inventory by classification for management table (JSON)
+router.get("/getInventory/:classification_id", utilities.handleErrors(invController.getInventoryJSON))
+
+// Route to build inventory edit view
+router.get("/edit/:invId", utilities.handleErrors(invController.buildEditInventory))
 
 module.exports = router;
