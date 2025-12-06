@@ -144,6 +144,24 @@ Util.checkLogin = (req, res, next) => {
   }
 }
 
+/* ****************************************
+ *  Restrict access to employees and admins
+ *  Uses JWT data already stored in res.locals
+ **************************************** */
+Util.checkEmployeeOrAdmin = async (req, res, next) => {
+  const accountType = res.locals.accountData ? res.locals.accountData.account_type : null
+  if (res.locals.loggedin && (accountType === "Employee" || accountType === "Admin")) {
+    return next()
+  }
+  req.flash("notice", "You must be logged in with appropriate permissions.")
+  const nav = await Util.getNav()
+  return res.status(403).render("account/login", {
+    title: "Login",
+    nav,
+    errors: null,
+  })
+}
+
 
 
 module.exports = Util
