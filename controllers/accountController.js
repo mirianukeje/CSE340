@@ -239,5 +239,13 @@ async function accountLogin(req, res) {
   }
 }
 
+/* ****************************************
+*  Process logout
+* *************************************** */
+async function accountLogout(req, res) {
+  res.clearCookie("jwt")
+  req.flash("notice", "You have been logged out.")
+  return res.redirect("/")
+}
 
-module.exports = { buildLogin, buildRegister, registerAccount, buildManagement, buildUpdateAccount, updateAccount, updatePassword, accountLogin }
+module.exports = { buildLogin, buildRegister, registerAccount, buildManagement, buildUpdateAccount, updateAccount, updatePassword, accountLogin, accountLogout }

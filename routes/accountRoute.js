@@ -9,6 +9,8 @@ const regValidate = require("../utilities/account-validation")
 router.get("/", utilities.checkLogin, utilities.handleErrors(accountController.buildManagement))
 // Account update view
 router.get("/update/:accountId", utilities.checkLogin, utilities.handleErrors(accountController.buildUpdateAccount))
+// Logout
+router.get("/logout", utilities.handleErrors(accountController.accountLogout))
 // Account update process
 router.post(
   "/update",
